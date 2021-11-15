@@ -24,7 +24,7 @@ def clean_iris_data(df):
     # renames columns for easier reading
     df.rename(columns={'species_name':'species'},inplace=True)
     # Creates boolean dummy variables for species rather than using the string version of name
-    dummy_df = pd.get_dummies(df['species'], dummy_na=False, drop_first=(True))
+    dummy_df = pd.get_dummies(df['species'], dummy_na=False)
     # concatenates dummy variable rows onto original dataframe
     df = pd.concat([df, dummy_df], axis=1)
     return df
@@ -36,7 +36,7 @@ def split_iris_data(df):
     return train, validate, test
 
 
-def prep_iris_data:
+def prep_iris_data(df):
     # this function takes in the iris data set and cleans and preps it for exploration
 
     df = clean_iris_data(df)
