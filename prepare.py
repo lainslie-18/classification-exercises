@@ -46,7 +46,7 @@ def prep_iris_data(df):
 
 ####################### titanic_data ###############################
 
-def clean__titanic_data(df):
+def clean_titanic_data(df):
     # this function takes in the titanic data set and cleans it
     
     # dropping duplicate columns
