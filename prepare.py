@@ -52,12 +52,12 @@ def clean_titanic_data(df):
     # dropping duplicate columns
     df = df.drop_duplicates()
     # dropping unnecessary columns
-    cols_to_drop = ['deck', 'embarked', 'class', 'age']
+    cols_to_drop = ['deck', 'embarked', 'class', 'passenger_id']
     df = df.drop(columns=cols_to_drop)
     # filling nan values under embark_town column with most common value
     df['embark_town'] = df.embark_town.fillna(value='Southampton')
     # Creating boolean dummy variables for categorical columns rather than using string name
-    dummy_df = pd.get_dummies(df[['sex', 'embark_town']], dummy_na=False,drop_first=(True,True))
+    dummy_df = pd.get_dummies(df[['sex', 'embark_town']], dummy_na=False) #drop_first=(True,True)
     # concatenating dummy variable rows onto original dataframe
     df = pd.concat([df, dummy_df], axis=1)
     return df
